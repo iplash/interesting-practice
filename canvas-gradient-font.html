@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用Canvas保存渐变字体为图片</title>
+</head>
+
+<body>
+  <div class="canvas"></div>
+  <button class="create">生成图片</button>
+</body>
+<script>
+  const canvas = document.createElement('canvas');
+  document.querySelector('.canvas').append(canvas);
+  const btn = document.querySelector('.create');
+
+  const img = new Image();
+  img.crossOrigin = 'Anonymous';
+  img.src = './assets/canvas-gradient-font.jpg';
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    ctx.font = "30px Verdana";
+    // Create gradient
+    var gradient = ctx.createLinearGradient(300, 90, 300, 120);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "red");
+    gradient.addColorStop("1.0", "blue");
+    // Fill with gradient
+    ctx.fillStyle = gradient;
+    ctx.textAlign = "center";
+    ctx.fillText("大海里开摩托", canvas.width / 2, 90);
+  }
+
+  btn.addEventListener('click', function () {
+    const dataURL = canvas.toDataURL('image/png')
+    console.log(dataURL)
+  })
+</script>
+
+</html>
