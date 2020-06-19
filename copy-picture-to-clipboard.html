@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复制web图片到系统剪贴板</title>
+</head>
+
+<body>
+  <img id='image' src="https://pic1.zhimg.com/80/53779b00fc06631f6aab9caf850d7ca0_1440w.jpg" alt="">
+  <button class="copy">复制</button>
+</body>
+<script>
+  const img = document.querySelector('#image');
+  const copy = document.querySelector('.copy');
+
+  function copyWithExecCommad() {
+    var imgs = document.createElement('img');
+    imgs.src = img.src;
+    imgs.id = 'new';
+
+    var bodys = document.body;
+    bodys.appendChild(imgs);
+
+    if (document.createRange) {
+      var range = document.createRange();
+      range.setStartBefore(imgs);
+      range.setEndAfter(imgs);
+      range.selectNode(imgs);
+
+    } else {
+      alert('浏览器不支持该功能！');
+    }
+
+    var sel = window.getSelection();
+    sel.addRange(range);
+
+    document.execCommand('copy');
+    document.querySelector('#new').remove();
+  }
+
+  copy.addEventListener('click', function () {
+    copyWithExecCommad();
+  })
+</script>
+
+</html>
