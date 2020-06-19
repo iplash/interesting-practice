@@ -24,16 +24,16 @@
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
-    ctx.font = "30px Verdana";
+    ctx.font = "90px Verdana";
     // Create gradient
     var gradient = ctx.createLinearGradient(300, 90, 300, 120);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "red");
-    gradient.addColorStop("1.0", "blue");
+    gradient.addColorStop("1.0", "black");
     // Fill with gradient
     ctx.fillStyle = gradient;
     ctx.textAlign = "center";
-    ctx.fillText("大海里开摩托", canvas.width / 2, 90);
+    ctx.fillText("大海里开摩托", canvas.width / 2, 120);
   }
 
   btn.addEventListener('click', function () {
