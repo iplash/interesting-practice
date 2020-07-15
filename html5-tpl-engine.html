@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html5 tpl engine</title>
+</head>
+<body>
+  
+</body>
+<script type="text/x-template" id="tpl">
+  <h1><%=data.title%></h1>
+  <p><%=data.content%></p>
+</script>
+<script>
+  var htmltpl = document.getElementById('#tpl').innerHTML;
+  tipEngine(htmltpl, {
+    title: 'this is title',
+    content: 'this is content'
+  })
+</script>
+</html>
