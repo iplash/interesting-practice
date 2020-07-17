@@ -1,0 +1,821 @@
+.flex-row {
+  display        : flex;
+  flex-flow      : row nowrap;
+  justify-content: flex-start;
+  align-items    : center;
+}
+
+.flex-column {
+  display        : flex;
+  flex-flow      : column nowrap;
+  justify-content: space-between;
+  align-items    : stretch;
+}
+
+.text-ellipsis {
+  overflow     : hidden;
+  white-space  : nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-multiline {
+  -o-text-overflow  : -o-ellipsis-lastline;
+  text-overflow     : -o-ellipsis-lastline;
+  overflow          : hidden;
+  -o-text-overflow  : ellipsis;
+  text-overflow     : ellipsis;
+  display           : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break        : break-all;
+  white-space       : normal;
+}
+
+.galaxy-headline {
+  width        : 3px;
+  height       : 14px;
+  background   : linear-gradient(180deg, rgba(255, 54, 67, 1) 0%, rgba(255, 204, 207, 1) 100%);
+  border-radius: 2px;
+}
+
+.galaxy-header {
+  width     : 100vw;
+  height    : 100vw;
+  position  : relative;
+  background: tomato;
+}
+
+.galaxy-trans-box {
+  position     : absolute;
+  height       : 30px;
+  border-radius: 15px;
+  background   : rgba(0, 0, 0, 0.61);
+  bottom       : 47px;
+  left         : 13px;
+  overflow     : hidden;
+  transition   : all 0.35s ease-in-out;
+  width        : 0;
+}
+
+.galaxy-trans-list {
+  width     : 261px;
+  transition: all 0.35s ease-in-out;
+}
+
+.galaxy-trans-item {
+  height : 26px;
+  width  : 261px;
+  padding: 2px;
+}
+
+.galaxy-trans-item img {
+  height       : 24px;
+  width        : 24px;
+  border       : 1px solid #FFF;
+  border-radius: 13px;
+}
+
+.galaxy-trans-item span {
+  display     : inline-block;
+  height      : 26px;
+  line-height : 26px;
+  width       : 235px;
+  font-size   : 12px;
+  font-family : PingFangSC-Regular, PingFang SC;
+  font-weight : 400;
+  color       : #FFF;
+  box-sizing  : border-box;
+  padding-left: 5px;
+}
+
+.galaxy-abstract {
+  border-top   : 1px solid #EAEAEA;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 10px;
+  box-sizing   : border-box;
+  padding      : 5px 10px 12px;
+  background   : #FFF;
+}
+
+.galaxy-abstract-ps {
+  height         : 38px;
+  line-height    : 38px;
+  align-items    : baseline;
+  justify-content: space-between;
+}
+
+.galaxy-abstract-price {
+  font-size  : 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  height     : 38px;
+  color      : #F91415;
+}
+
+.galaxy-abstract-price span:first-child {
+  font-size: 27px;
+}
+
+.galaxy-abstract-price span:last-child {
+  font-size      : 12px;
+  font-family    : PingFangSC-Regular, PingFang SC;
+  font-weight    : 400;
+  color          : #888;
+  padding-left   : 6px;
+  text-decoration: line-through;
+}
+
+.galaxy-abstract-sales {
+  font-size  : 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : #888;
+}
+
+.galaxy-abstract-sales span {
+  color: #F91415;
+}
+
+.galaxy-abstract-order-back {
+  margin-top     : 8px;
+  background     : #FFF3D9;
+  height         : 34px;
+  border-radius  : 17px;
+  justify-content: space-between;
+  box-sizing     : border-box;
+  padding        : 0 14px 0 10px;
+}
+
+.galaxy-abstract-cash {
+  height: 19px;
+}
+
+.galaxy-abstract-cash span:nth-child(1) {
+  display        : inline-flex;
+  width          : 63px;
+  height         : 19px;
+  line-height    : 19px;
+  background     : linear-gradient(180deg, rgba(112, 66, 46, 1) 0%, rgba(58, 24, 22, 1) 100%);
+  border-radius  : 10px;
+  font-size      : 11px;
+  font-family    : PingFangSC-Semibold, PingFang SC;
+  font-weight    : 600;
+  color          : #FFF;
+  justify-content: center;
+  padding-right  : 5px;
+}
+
+.galaxy-abstract-cash span:nth-child(1) img {
+  width : 16px;
+  height: 12px;
+}
+
+.galaxy-abstract-cash span:nth-child(2) {
+  height      : 17px;
+  font-size   : 12px;
+  font-family : PingFangSC-Medium, PingFang SC;
+  font-weight : 500;
+  color       : rgba(51, 51, 51, 1);
+  line-height : 17px;
+  padding-left: 6px;
+}
+
+.galaxy-abstract-cash span:nth-child(3) {
+  height      : 17px;
+  font-size   : 12px;
+  font-family : PingFangSC-Regular, PingFang SC;
+  font-weight : 400;
+  color       : rgba(51, 51, 51, 1);
+  line-height : 17px;
+  padding-left: 5px;
+}
+
+.galaxy-abstract-cash span:nth-child(4) {
+  height     : 17px;
+  font-size  : 12px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(255, 57, 0, 1);
+  line-height: 17px;
+}
+
+.galaxy-abstract-upgrade {
+  height         : 17px;
+  font-size      : 12px;
+  font-family    : PingFangSC-Medium, PingFang SC;
+  font-weight    : 500;
+  color          : rgba(255, 57, 0, 1);
+  line-height    : 17px;
+  width          : 62px;
+  justify-content: space-between;
+}
+
+.galaxy-abstract-upgrade img {
+  width : 6px;
+  height: 9px;
+}
+
+.galaxy-abstract-title {
+  height     : 40px;
+  font-size  : 15px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(51, 51, 51, 1);
+  line-height: 20px;
+  margin-top : 12px;
+  overflow   : hidden;
+}
+
+.galaxy-abstract-title-label {
+  width        : 25px;
+  height       : 17px;
+  background   : linear-gradient(180deg, rgba(255, 126, 110, 1) 0%, rgba(255, 0, 50, 1) 100%);
+  border-radius: 2px;
+  color        : #FFF;
+  line-height  : 17px;
+  padding      : 0 3px;
+  font-size    : 12px;
+}
+
+.galaxy-abstract-features {
+  margin-bottom: 15px;
+}
+
+.galaxy-abstract-features-item {
+  height       : 22px;
+  line-height  : 22px;
+  border-radius: 11px;
+  padding      : 0 8px;
+  font-size    : 12px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  margin-top   : 10px;
+  font-weight  : 400;
+  display      : inline-block;
+  color        : rgba(254, 55, 56, 1);
+}
+
+.galaxy-features-icon-clock {
+  padding-left: 28px;
+  background  : url('../business-detail-page/clock@2x.png') 8px center / 16px 16px no-repeat #FFF2F2;
+}
+
+.galaxy-features-icon-gift {
+  padding-left: 27px;
+  background  : url('../business-detail-page/gift@2x.png') 8px center / 15px 15px no-repeat #FFF2F2;
+}
+
+.galaxy-features-icon-cart {
+  padding-left: 28px;
+  background  : url('../business-detail-page/cart@2x.png') 8px center / 16px 14px no-repeat #FFF2F2;
+}
+
+.galaxy-features-icon-discount {
+  padding-left: 30px;
+  background  : url('../business-detail-page/discount@2x.png') 8px center / 18px 14px no-repeat #FFF2F2;
+}
+
+.galaxy-abstract-coupon {
+  height       : 65px;
+  background   : linear-gradient(270deg, rgba(255, 238, 238, 1) 0%, rgba(255, 226, 232, 1) 100%);
+  border-radius: 10px;
+  box-sizing   : border-box;
+}
+
+.galaxy-abstract-coupon-effective {
+  flex           : 1;
+  height         : 35px;
+  padding        : 15px 0;
+  justify-content: center;
+}
+
+.galaxy-abstract-coupon-amount {
+  height       : 35px;
+  line-height  : 35px;
+  padding-right: 20px;
+  font-size    : 15px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  font-weight  : 400;
+  color        : rgba(255, 49, 62, 1);
+  align-items  : baseline;
+}
+
+.galaxy-abstract-coupon-amount span {
+  font-size  : 24px;
+  font-weight: 500;
+}
+
+.galaxy-abstract-coupon-deadline span:first-child {
+  height     : 18px;
+  font-size  : 13px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(255, 49, 62, 1);
+  line-height: 18px;
+}
+
+.galaxy-abstract-coupon-deadline span:last-child {
+  height     : 16px;
+  font-size  : 11px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(255, 49, 62, 1);
+  line-height: 16px;
+}
+
+.galaxy-abstract-coupon-receive {
+  padding        : 15px 0;
+  flex           : 0 0 115px;
+  height         : 35px;
+  line-height    : 35px;
+  text-align     : center;
+  font-size      : 14px;
+  font-family    : PingFangSC-Medium, PingFang SC;
+  font-weight    : 500;
+  color          : #FF313E;
+  text-decoration: none;
+  border-left    : 1px dashed #FFF;
+  position       : relative;
+}
+
+.galaxy-abstract-coupon-receive::before,
+.galaxy-abstract-coupon-receive::after {
+  content      : '';
+  background   : #FFF;
+  width        : 11px;
+  height       : 11px;
+  border-radius: 50%;
+  position     : absolute;
+  left         : -6px;
+  top          : -6px;
+  z-index      : 8;
+}
+
+.galaxy-abstract-coupon-receive::after {
+  top: 60px;
+}
+
+.galaxy-talent {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background   : #FFF;
+  box-sizing   : border-box;
+  padding      : 7px 12px 12px;
+}
+
+.galaxy-talent-title {
+  justify-content: space-between;
+  align-items    : flex-end;
+  height         : 27px;
+}
+
+.galaxy-talent-avatar {
+  font-size  : 13px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(254, 55, 56, 1);
+  line-height: 20px;
+}
+
+.galaxy-talent-avatar img {
+  width       : 27px;
+  height      : 27px;
+  margin-right: 4px;
+}
+
+.galaxy-talent-shares {
+  height     : 20px;
+  font-size  : 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(102, 102, 102, 1);
+  line-height: 20px;
+}
+
+.galaxy-talent-content {
+  background   : #F4F4F4;
+  border-radius: 10px;
+  padding      : 8px 18px;
+  margin-top   : 10px;
+  position     : relative;
+  font-size    : 12px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  font-weight  : 400;
+  color        : rgba(85, 85, 85, 1);
+  line-height  : 18px;
+}
+
+.galaxy-talent-content::after {
+  content      : '';
+  width        : 0;
+  height       : 0;
+  position     : absolute;
+  top          : -10px;
+  left         : 51px;
+  border-bottom: 12px solid #F4F4F4;
+  border-right : 20px solid #FFF;
+  z-index      : 8;
+  transform    : rotate(-10deg);
+}
+
+.galaxy-store {
+  padding      : 10px;
+  background   : #FFF;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.galaxy-store img {
+  width        : 52px;
+  height       : 52px;
+  border-radius: 5px;
+  flex-basis   : 52px;
+}
+
+.galaxy-store-info {
+  flex        : 1;
+  height      : 52px;
+  box-sizing  : border-box;
+  padding-left: 8px;
+}
+
+.galaxy-store-info-header {
+  justify-content: space-between;
+}
+
+.galaxy-store-info-title {
+  height     : 20px;
+  font-size  : 13px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(51, 51, 51, 1);
+  line-height: 20px;
+}
+
+.galaxy-store-info-into {
+  justify-content: space-between;
+}
+
+.galaxy-store-info-into a {
+  text-decoration: none;
+  text-align     : center;
+  border-radius  : 11px;
+  display        : inline-block;
+}
+
+.galaxy-store-info-into a:first-child {
+  width      : 58px;
+  height     : 22px;
+  line-height: 22px;
+  font-size  : 11px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(254, 55, 56, 1);
+  border     : 1px solid rgba(254, 55, 56, 1);
+}
+
+.galaxy-store-info-into a:last-child {
+  width      : 60px;
+  height     : 24px;
+  line-height: 24px;
+  background : linear-gradient(90deg, rgba(255, 80, 80, 1) 0%, rgba(255, 52, 93, 1) 100%);
+  font-size  : 11px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(255, 255, 255, 1);
+}
+
+.galaxy-store-info-score {}
+
+.galaxy-store-info-score span {
+  height     : 18px;
+  font-size  : 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(136, 136, 136, 1);
+  line-height: 18px;
+}
+
+.galaxy-store-info-score span:nth-child(n+2) {
+  margin-left: 14px;
+}
+
+.galaxy-store-info-score span i {
+  margin-left  : 4px;
+  display      : inline-block;
+  width        : 13px;
+  height       : 13px;
+  line-height  : 13px;
+  text-align   : center;
+  background   : #F0F0F0;
+  border-radius: 3px;
+  font-style   : normal;
+  font-size    : 9px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  font-weight  : 400;
+}
+
+.galaxy-store-info-score span.high-score i {
+  background: #FA2435;
+  color     : #FFF;
+}
+
+.galaxy-assess {
+  padding      : 12px 10px;
+  margin-bottom: 10px;
+  background   : #FFF;
+  border-radius: 10px;
+}
+
+.galaxy-assess-header {
+  justify-content: space-between;
+  height         : 20px;
+  margin-bottom  : 10px;
+}
+
+.galaxy-assess-header a {
+  height         : 20px;
+  font-size      : 12px;
+  font-family    : PingFangSC-Regular, PingFang SC;
+  font-weight    : 400;
+  color          : rgba(51, 51, 51, 1);
+  line-height    : 20px;
+  background     : url('./arrow.gray@2x.png') right center / 6px 10px no-repeat;
+  padding-right  : 15px;
+  text-decoration: none;
+}
+
+.galaxy-assess-title span {
+  padding-left: 6px;
+  height      : 20px;
+  font-size   : 14px;
+  font-family : PingFangSC-Medium, PingFang SC;
+  font-weight : 500;
+  color       : rgba(51, 51, 51, 1);
+  line-height : 20px;
+  display     : inline-flex;
+  align-items : baseline;
+}
+
+.galaxy-assess-title span u {
+  text-decoration: none;
+  padding-left   : 3px;
+  font-size      : 12px;
+}
+
+.galaxy-assess-statistics {}
+
+.galaxy-assess-statistics span {
+  background   : #FFF2F2;
+  display      : inline-block;
+  height       : 32px;
+  line-height  : 32px;
+  border-radius: 16px;
+  padding      : 0 15px;
+  font-size    : 12px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  font-weight  : 400;
+  color        : rgba(51, 51, 51, 1);
+  margin-bottom: 10px;
+}
+
+.galaxy-assess-content-nickname {
+  height     : 20px;
+  font-size  : 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(136, 136, 136, 1);
+  line-height: 20px;
+  margin     : 4px 0 9px 0;
+}
+
+.galaxy-assess-content-detail {
+  height     : 39px;
+  font-size  : 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(51, 51, 51, 1);
+  line-height: 18px;
+  overflow   : hidden;
+}
+
+.galaxy-product-details {
+  background   : #FFF;
+  border-radius: 10px;
+  overflow     : hidden;
+  margin-bottom: 4px;
+}
+
+.galaxy-product-header {
+  height         : 44px;
+  padding        : 0 10px;
+  justify-content: space-between;
+}
+
+.galaxy-product-title span {
+  padding-left: 6px;
+  height      : 20px;
+  font-size   : 14px;
+  font-family : PingFangSC-Medium, PingFang SC;
+  font-weight : 500;
+  color       : rgba(51, 51, 51, 1);
+  line-height : 20px;
+}
+
+.galaxy-product-unfold {
+  height     : 20px;
+  font-size  : 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(51, 51, 51, 1);
+  line-height: 20px;
+}
+
+.galaxy-product-content img {
+  width: 100%;
+}
+
+.galaxy-recommend {
+  padding-bottom: 7px;
+}
+
+.galaxy-recommend-header {
+  justify-content: center;
+  height         : 44px;
+  line-height    : 44px;
+  font-size      : 14px;
+  font-family    : PingFangSC-Medium, PingFang SC;
+  font-weight    : 500;
+  color          : rgba(51, 51, 51, 1);
+}
+
+.galaxy-recommend-header img {
+  width      : 16px;
+  height     : 14px;
+  margin-left: 5px;
+}
+
+.galaxy-recommend-list {
+  flex-flow: row wrap;
+}
+
+.galaxy-recommend-item {
+  width     : 50%;
+  box-sizing: border-box;
+  z-index   : 9;
+}
+
+.galaxy-recommend-item:nth-child(odd) {
+  padding: 0 3.5px 0 7px;
+}
+
+.galaxy-recommend-item:nth-child(even) {
+  padding: 0 7px 0 3.5px;
+}
+
+.galaxy-recommend-card {
+  margin-bottom: 7px;
+  border-radius: 4px;
+  background   : #FFF;
+}
+
+.galaxy-recommend-card-img {
+  width: 100%;
+}
+
+.galaxy-recommend-card-info {
+  box-sizing: border-box;
+  height    : 122px;
+  padding   : 10px 0 10px 10px;
+  position  : relative;
+}
+
+.galaxy-recommend-card-title {
+  height     : 18px;
+  font-size  : 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(51, 51, 51, 1);
+  line-height: 18px;
+}
+
+.galaxy-recommend-card-coupon {
+  justify-content: space-between;
+  align-items    : baseline;
+  padding-top    : 11px;
+  height         : 19px;
+  line-height    : 19px;
+  position       : relative;
+}
+
+.galaxy-recommend-card-real-price {
+  align-items: baseline;
+  line-height: 19px;
+}
+
+.galaxy-recommend-card-real-price span {
+  height     : 10px;
+  font-size  : 10px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(102, 102, 102, 1);
+  line-height: 10px;
+}
+
+.galaxy-recommend-card-real-price u {
+  text-decoration: none;
+  font-size      : 12px;
+  font-family    : PingFangSC-Medium, PingFang SC;
+  font-weight    : 500;
+  color          : rgba(255, 43, 34, 1);
+  padding        : 0 3px;
+}
+
+.galaxy-recommend-card-real-price i {
+  font-size  : 19px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  font-style : normal;
+  color      : rgba(255, 43, 34, 1);
+}
+
+.galaxy-recommend-card-cash-back {
+  z-index    : 11;
+  height     : 14px;
+  font-size  : 10px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color      : rgba(255, 255, 255, 1);
+  line-height: 14px;
+  width      : 48px;
+  text-align : center;
+}
+
+.galaxy-recommend-card-layer {
+  position: absolute;
+  width   : 62px;
+  height  : 23px;
+  z-index : 10;
+  top     : 15px;
+  right   : -7px;
+}
+
+.galaxy-recommend-card-label {
+  height    : 14px;
+  overflow  : hidden;
+  margin-top: 6px;
+}
+
+.galaxy-recommend-card-label span {
+  padding      : 0 3px;
+  height       : 12px;
+  line-height  : 14px;
+  border-radius: 2px;
+  border       : 1px solid rgba(255, 81, 1, 1);
+  font-size    : 10px;
+  font-family  : PingFangSC-Regular, PingFang SC;
+  font-weight  : 400;
+  color        : rgba(255, 80, 0, 1);
+}
+
+.galaxy-recommend-card-sales {
+  height    : 14px;
+  margin-top: 4px;
+}
+
+.galaxy-recommend-card-sales span {
+  height     : 14px;
+  font-size  : 10px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(136, 136, 136, 1);
+  line-height: 14px;
+}
+
+.galaxy-divider {
+  width     : 1px;
+  height    : 9px;
+  background: rgba(179, 179, 179, 1);
+  margin    : 0 3px;
+}
+
+.galaxy-recommend-card-store {
+  padding-top    : 2px;
+  height         : 14px;
+  text-decoration: none;
+}
+
+.galaxy-recommend-card-store span {
+  height     : 14px;
+  font-size  : 10px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color      : rgba(136, 136, 136, 1);
+  line-height: 14px;
+
+}
+
+.galaxy-recommend-card-store span:nth-child(2) {
+  color     : #333;
+  padding   : 0 10px 0 4px;
+  background: url('./arrow.gray@2x.png') right 3px / 6px 10px no-repeat;
+}
