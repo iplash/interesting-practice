@@ -630,6 +630,29 @@
   line-height: 20px;
 }
 
+.galaxy-product-unfold i {
+  background : url('./unfold@2x.png') center center / 13px 13px no-repeat;
+  display    : inline-block;
+  width      : 13px;
+  height     : 13px;
+  margin-left: 5px;
+  transform  : rotate(0);
+  transition : all 0.15s ease-in-out;
+}
+
+.galaxy-product-collapse i {
+  transition: all 0.15s ease-in-out;
+  transform : rotate(180deg);
+}
+
+.galaxy-product-content {
+  display: block;
+}
+
+.galaxy-product-content-collapse {
+  display: none;
+}
+
 .galaxy-product-content img {
   width: 100%;
 }

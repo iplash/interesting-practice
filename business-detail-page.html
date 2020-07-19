@@ -109,7 +109,7 @@
         <i class="galaxy-headline"></i>
         <span>商品详情</span>
       </div>
-      <div class="galaxy-product-unfold">展开</div>
+      <div class="galaxy-product-unfold flex-row"><span>展开</span><i></i></div>
     </div>
     <div class="galaxy-product-content">
       <img src="https://img.alicdn.com/imgextra/i1/1077716829/O1CN01yjvlwW20JjK9I1vRZ_!!1077716829.jpg" alt="">
@@ -279,6 +279,17 @@
 
     var int = window.setInterval("trans()", 1500)
   }
+
+  $('.galaxy-product-unfold').click(function () {
+    $(this).toggleClass('galaxy-product-collapse');
+    if ($(this).hasClass('galaxy-product-collapse')) {
+      $(this).find('span').text('收起');
+      $('.galaxy-product-content').addClass('galaxy-product-content-collapse')
+    } else {
+      $(this).find('span').text('展开');
+      $('.galaxy-product-content').removeClass('galaxy-product-content-collapse')
+    }
+  })
 </script>
 
 </html>
