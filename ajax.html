@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>请求示例</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+  fetch(
+    'http://dtkapi.haojiequ.com/dtk_go_app_api/cms/admin/v1/set-business-display-conf?authToken=lFVgeLYd4V7mprxZwi5F6wgUC1q414hfMc8WWf_kH-qf44ILXJ7_VR-_dTp9gnPhPaeJYLwm8Nsvz4s-blYZkw&productType=2',
+    {
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'user-agent': 'Mozilla/4.0 MDN Example',
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      mode: 'cors',
+      redirect: 'follow',
+      referrer: 'no-referrer',
+    }
+  ).then(function (response) {
+    return response.json();
+  }).then(function (myJson) {
+    console.log(myJson);
+  });
+</script>
+
+</html>

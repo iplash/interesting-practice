@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瀑布流</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    /* flex */
+    /* .waterfall {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    .waterfall li {
+      width: 50%;
+      height: 60px;
+      display: inline-block;
+      background-color: rosybrown;
+    }
+
+    .waterfall li:nth-child(odd) {
+      width: 50%;
+      height: 30px;
+      background-color: salmon;
+    } */
+
+    /* grad */
+    /* .waterfall {
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(133px, 1fr));
+      grid-gap: 0.25em;
+      grid-auto-flow: row dense;
+      grid-auto-rows: 20px;
+    }
+
+    .waterfall li {
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    .waterfall li:nth-of-type(3n+1) {
+      grid-row: auto / span 5;
+      background-color: salmon;
+    }
+
+    .waterfall li:nth-of-type(3n+2) {
+      grid-row: auto / span 6;
+      background-color: sandybrown;
+    }
+
+    .waterfall li:nth-of-type(3n+3) {
+      grid-row: auto / span 8;
+      background-color: skyblue;
+    } */
+
+    /* css3 column */
+
+    .waterfall {
+      padding: 0;
+      margin: 0;
+      columns: 50px 2;
+      -moz-columns: 50px 2;
+      /* Firefox */
+      -webkit-columns: 50px 2;
+      /* Safari 和 Chrome */
+      column-gap: 10px;
+    }
+
+    .waterfall li {
+      box-sizing: border-box;
+      list-style: none;
+      width: 50vw;
+    }
+
+    .waterfall li:nth-of-type(3n+1) {
+      background-color: salmon;
+      height: 155px;
+    }
+
+    .waterfall li:nth-of-type(3n+2) {
+      background-color: sandybrown;
+      height: 180px;
+    }
+
+    .waterfall li:nth-of-type(3n+3) {
+      background-color: skyblue;
+      height: 168px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="waterfall">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+
+</html>
