@@ -1,0 +1,305 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag-and-drop</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      margin: 0 auto;
+      min-height: 100vh;
+      padding-top: 44px;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .textarea {
+      width: 300px;
+      height: 150px;
+    }
+
+    .action {
+      padding: 10px;
+    }
+
+    .action button {
+      width: 138px;
+      height: 50px;
+      color: rgb(136, 136, 136);
+      background: #FFF;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-radius: 8px;
+      border: 1px solid rgb(102, 102, 102);
+    }
+
+    .action button:focus {
+      outline: none;
+    }
+
+    .action button::before {
+      content: '';
+      width: 134px;
+      height: 46px;
+      top: 1px;
+      right: 1px;
+      border-radius: 6px;
+      background: rgb(203, 203, 203);
+      position: absolute;
+    }
+
+    .action button::after {
+      content: '★CHECKOUT★';
+      height: 36px;
+      width: 124px;
+      background: rgb(179, 179, 179);
+      position: absolute;
+      border-radius: 5px;
+      border: 1px solid rgb(140, 140, 140);
+      line-height: 36px;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .canvas {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      border: 1px solid rgb(102, 102, 102);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rectangle {
+      position: absolute;
+      border: 1px solid rgb(136, 136, 136);
+      cursor: grab;
+    }
+
+    .rectangle span {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border: 1px solid rgba(0, 0, 0, .8);
+      position: absolute;
+      background: #fff;
+      /* cursor: row-resize; */
+    }
+
+    .rectangle span:nth-child(1) {
+      top: -6px;
+      left: -6px;
+    }
+
+    .rectangle span:nth-child(2) {
+      top: -6px;
+      right: -6px;
+    }
+
+    .rectangle span:nth-child(3) {
+      bottom: -6px;
+      left: -6px;
+    }
+
+    .rectangle span:nth-child(4) {
+      bottom: -6px;
+      right: -6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <p id="foo">Hello</p>
+    <div class="action">
+      <button></button>
+    </div>
+    <div class="canvas">
+      <div class="rectangle" draggable="true"></div>
+    </div>
+  </div>
+</body>
+<script>
+  var rectangle = document.querySelector('.rectangle');
+  var elCurLayerX = 50;
+  var elCurLayerY = 50;
+  var elCurWidth = 60;
+  var elCurHeight = 20;
+  var shiftX = 0, shiftY = 0;
+
+  function setElLayer() {
+    rectangle.style.left = `${elCurLayerX}px`;
+    rectangle.style.top = `${elCurLayerY}px`;
+  }
+
+  function setElWH() {
+    rectangle.style.width = `${elCurWidth}px`;
+    rectangle.style.height = `${elCurHeight}px`;
+  }
+
+  //<span class="angle" draggable="true"></span>
+  function createAngle() {
+    var child = rectangle.lastElementChild;
+    if (child) return;
+    var n = 0;
+    while (n < 4) {
+      var angle = document.createElement('span');
+      angle.draggable = 'true';
+      angle.addEventListener('drag', throttle(spanDrag), false);
+      rectangle.appendChild(angle);
+      n++;
+    }
+  }
+
+  function removeAngle() {
+    var child = rectangle.lastElementChild;
+    while (child) {
+      rectangle.removeChild(child);
+      child = rectangle.lastElementChild;
+    }
+  }
+
+  function throttle(fn) {
+    var timer = null;
+    var isFirstExeced = false;
+
+    return (...args) => {
+      if (!isFirstExeced) {
+        fn(...args);
+        isFirstExeced = true;
+        return;
+      }
+
+      if (timer) {
+        return;
+      }
+      timer = window.requestAnimationFrame(() => {
+        timer = null;
+        fn(...args);
+      });
+    };
+  }
+
+  function dragStart(e) {
+    shiftX = e.clientX - rectangle.getBoundingClientRect().left;
+    shiftY = e.clientY - rectangle.getBoundingClientRect().top;
+    this.style.opacity = '0';
+    dragSrcEl = this;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
+  };
+
+  function dragEnter(e) {
+    //console.log(e)
+  }
+
+  function dragLeave(e) {
+    e.stopPropagation();
+    setElLayer();
+    removeAngle();
+  }
+
+  function spanDrag(e) {
+    e.stopPropagation();
+    rectangle.style.opacity = '1';
+    let x = 0, y = 0;
+    if (e.offsetX || e.offsetY) {
+      x = e.offsetX;
+      y = e.offsetY;
+    } else if (e.layerX || e.layerY) {
+      x = e.layerX;
+      y = e.layerY;
+    }
+    // elCurWidth += x;
+    // elCurWidth += y;
+    // setElWH();
+    console.log(x, y)
+    return false;
+  }
+
+  function drag(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    rectangle.style.opacity = '1';
+    shiftOffset(e);
+    return false;
+  }
+
+  function dragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    removeAngle();
+    return false;
+  }
+
+  function drop(e) {
+    if (dragSrcEl != this) {
+      dragSrcEl.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+    return false;
+  }
+
+  function dragEnd(e) {
+    this.style.opacity = '1';
+    shiftOffset(e);
+  }
+
+  function shiftOffset(event) {
+    var x = 0, y = 0;
+    if (event.offsetX || event.offsetY) {
+      x = event.offsetX;
+      y = event.offsetY;
+    } else if (event.layerX || event.layerY) {
+      x = event.layerX;
+      y = event.layerY;
+    }
+    elCurLayerX += x - shiftX;
+    elCurLayerY += y - shiftY;
+    setElLayer();
+  }
+
+  function mouseenter(e) {
+    createAngle()
+  }
+
+  function mouseout(e) {
+    removeAngle()
+  }
+
+  function addEventHover(el) {
+    el.addEventListener('mouseenter', mouseenter, false);
+    //el.addEventListener('mouseout', mouseout, false);
+  }
+
+  function addEventsDragAndDrop(el) {
+    el.addEventListener('dragstart', dragStart, false);
+    el.addEventListener('dragenter', dragEnter, false);
+    el.addEventListener('dragover', dragOver, false);
+    el.addEventListener('dragleave', dragLeave, false);
+    el.addEventListener('drop', drop, false);
+    el.addEventListener('drag', throttle(drag), false);
+    el.addEventListener('dragend', dragEnd, false);
+  }
+
+  setElWH();
+  setElLayer();
+  addEventHover(rectangle);
+  addEventsDragAndDrop(rectangle);
+</script>
+
+</html>
