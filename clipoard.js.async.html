@@ -26,14 +26,13 @@
 <script>
   let copy = document.querySelector('.copy');
   copy.addEventListener('click', function () {
-    handleCopy(this);
+    handleCopy();
   })
 
-  function handleCopy(el) {
-    console.log(el)
-    var clipboard = new ClipboardJS(el, {
+  function handleCopy() {
+    var clipboard = new ClipboardJS('.copy', {
       text: function (trigger) {
-        return '测试';
+        return `测试-${Math.random()}`;
       }
     });
     clipboard.on('success', function (e) {
@@ -46,12 +45,6 @@
       console.log('口令复制失败!')
     });
   }
-  
-  var clipboard = new ClipboardJS('.btn', {
-    text: function (trigger) {
-      return '测试3';
-    }
-  });
 </script>
 
 </html>
