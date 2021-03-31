@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClipoardJS Async</title>
+  <style type="text/css">
+    .copy,
+    .btn {
+      margin: 0 auto;
+      width: 200px;
+      height: 30px;
+      line-height: 30px;
+      border: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button type="submit" class="copy">复制</button>
+  <button type="submit" class="btn">copy</button>
+</body>
+<script src="./assets/javascript/clipboard.min.js"></script>
+<script>
+  let copy = document.querySelector('.copy');
+  copy.addEventListener('click', function () {
+    handleCopy(this);
+  })
+
+  function handleCopy(el) {
+    console.log(el)
+    var clipboard = new ClipboardJS(el, {
+      text: function (trigger) {
+        return '测试';
+      }
+    });
+    clipboard.on('success', function (e) {
+      e.clearSelection();
+      clipboard.destroy();
+      console.log('口令复制成功，打开手淘特价版领取!')
+    });
+
+    clipboard.on('error', function (e) {
+      console.log('口令复制失败!')
+    });
+  }
+  
+  var clipboard = new ClipboardJS('.btn', {
+    text: function (trigger) {
+      return '测试3';
+    }
+  });
+</script>
+
+</html>
