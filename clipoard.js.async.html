@@ -19,20 +19,21 @@
 </head>
 
 <body>
+  <h3>ClipoardJS 同步复制</h3>
   <button type="submit" class="copy">复制</button>
-  <button type="submit" class="btn">copy</button>
+  <!-- <button type="submit" class="btn">copy</button> -->
 </body>
 <script src="./assets/javascript/clipboard.min.js"></script>
 <script>
   let copy = document.querySelector('.copy');
   copy.addEventListener('click', function () {
-    handleCopy();
+    handleCopy(`测试-${Math.random()}`);
   })
 
-  function handleCopy() {
+  function handleCopy(text) {
     var clipboard = new ClipboardJS('.copy', {
       text: function (trigger) {
-        return `测试-${Math.random()}`;
+        return text;
       }
     });
     clipboard.on('success', function (e) {

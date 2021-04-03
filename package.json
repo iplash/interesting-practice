@@ -1,0 +1,29 @@
+{
+  "name": "interesting-practice",
+  "version": "1.0.0",
+  "description": "一些有趣的实践",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iplash/interesting-practice.git"
+  },
+  "author": "iamk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iplash/interesting-practice/issues"
+  },
+  "homepage": "https://github.com/iplash/interesting-practice#readme",
+  "devDependencies": {
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
